@@ -1,0 +1,21 @@
+<p>
+  Name:<input [(ngModel)]="name">
+  </p>
+  <p>
+  Age:<input [(ngModel)]="age">
+</p>
+<p>
+  <button *ngIf="btn_stt" (click)="saveDoctor()">Save</button>
+  <button *ngIf="!btn_stt" (click)="updateDoctor()">Update</button>
+</p>
+<table border="1" width="50%">
+  <th>slno</th><th>Name</th><th>age</th><th>Action</th>
+  <tr *ngFor='let x of docs;let i=index'>
+    <td>{{i+1}}</td>
+    <td>{{x.record.name}}</td>
+    <td>{{x.record.age}}</td>
+    <td><button (click)="deleteDoctor(x.key)">Delete</button>
+    <button (click)="editDoctor(x)">Edit</button>
+    </td>
+  </tr>
+</table>
